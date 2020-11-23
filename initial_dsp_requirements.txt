@@ -1,0 +1,34 @@
+Thickest to thinnest string
+lowest to highest frequency
+top to bottom position for righty
+E (6) -  82.41 Hz
+A (5) - 110.00 Hz
+D (4) - 146.83 Hz
+G (3) - 196.00 Hz
+B (2) - 246.94 Hz
+E (1) - 329.63 Hz
+
+Questions?
+Theoretical lowest out of tune frequency? Maybe 20 Hz?
+Theoretical highest out of tune frequency? Maybe 600 Hz?
+Size of fft? zero pad the fft for more interpolation?
+Sampling frequency? As fast as possible? Slower smapling gives better resolution for smaller number of fft samples? --> use a lowpass filter then to get rid of high frequency artifacts?
+Sampling duration? More time means greater resolution?
+Use some kind of shaped window to get better frequency resolution? --> tradeoff between leakage and resolution --> blackman-harris with coarse resolution since we are only looking for a single tone?
+
+Needed frequency resolution? At least within 20 Hz.
+
+Stretch goal: strum entire guitar at same time and tune together?
+
+-----What we have control of (inputs):
+Fs (1/Ts): sampling rate
+M: number of samples (aka Fs*M=sampling duration)
+N: FFT length (zero padding, N >> 2M)
+Windowing: trading off resolution and spectral leakage
+Filtering: removing high frequency noise before fft? windowing also accomplishes this?
+
+-----What we are controlling for (ouputs):
+frequency resolution (delta f aka delta w)
+spectral leakage
+computation time and space
+computation frequency
